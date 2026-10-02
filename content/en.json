@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "Onyx Club | Sport · Lifestyle · Zen on Lake Geneva",
+    "desc": "Private sport and wellness club in Cologny, Geneva."
+  },
+  "nav": [
+    "THE CONCEPT",
+    "ACTIVITIES",
+    "EVENT",
+    "TEAM",
+    "REVIEWS",
+    "GALLERY",
+    "MILKSHAKES",
+    "COMMUNITY",
+    "BOOK"
+  ],
+  "cta": "BECOME A MEMBER",
+  "hero": {
+    "tag": "SPORT · LIFESTYLE · ZEN · ON LAKE GENEVA",
+    "title": "A club apart.",
+    "btn": "DISCOVER"
+  },
+  "marquee": "SPORT • LIFESTYLE • ZEN • MOVE • BREATHE • EVOLVE • ",
+  "concept": {
+    "label": "OUR CONCEPT",
+    "badge": "SPORT LIFESTYLE ZEN",
+    "title": "A private club. Nothing more.",
+    "sub": "Sport, relaxation and panoramic views on the shore of Lake Geneva.",
+    "items": [
+      "UNIQUE STYLE",
+      "COMMUNITY",
+      "PERSONALISED COACHING",
+      "UNIQUE VIEW",
+      "CARE & RECOVERY",
+      "NUTRITION & WELL-BEING"
+    ]
+  },
+  "acts": {
+    "label": "OUR ACTIVITIES",
+    "title": "Exceptional activities.",
+    "sub": "Choose your rhythm.",
+    "group": "Group class 1h",
+    "single": "Private 1h",
+    "btn": "BOOK A SESSION",
+    "items": [
+      [
+        "YOGA & PILATES",
+        "Guided yoga & Pilates in the studio · recovery Pilates"
+      ],
+      [
+        "COMBAT SPORTS",
+        "Technical Boxing · Boxing Fitness · Muay Thai · Sparring"
+      ],
+      [
+        "PRIVATE TRAINING",
+        "Personal Training · tailor-made sessions"
+      ],
+      [
+        "RUNNING",
+        "Indoor running & endurance training"
+      ],
+      [
+        "PERSONAL DEVELOPMENT",
+        "Workshops · 1h mental preparation"
+      ],
+      [
+        "BOOTCAMP",
+        "Intensive bootcamp sessions"
+      ],
+      [
+        "STRONG NATION / CIRCLE MOBILITY",
+        "Rhythmic group training and mobility work in the studio"
+      ],
+      [
+        "STRETCHING",
+        "Indoor recovery and flexibility session"
+      ]
+    ]
+  },
+  "boxe": {
+    "title": "Self-mastery & strength.",
+    "text": "Boosted agility and endurance. Precision of action. Resilience & balance."
+  },
+  "reviews": {
+    "label": "REVIEWS",
+    "title": "They became members.",
+    "items": [
+      [
+        "A unique place with a rare energy.",
+        "Member, Cologny"
+      ],
+      [
+        "The coaching truly changes my week.",
+        "Entrepreneur, Geneva"
+      ],
+      [
+        "The studio and its atmosphere: unforgettable.",
+        "Member, Geneva"
+      ]
+    ]
+  },
+  "bar": {
+    "label": "NUTRITION BAR",
+    "title": "ONYX MILKSHAKES.",
+    "sub": "Clean-label proteins, superfoods and unique flavours to boost your performance.",
+    "kcal": "kcal · 30g protein",
+    "shakes": [
+      [
+        "Onyx Protein",
+        "Black sesame · cacao · banana · oat",
+        "400"
+      ],
+      [
+        "Mocha Protein",
+        "Espresso · cacao · almond butter",
+        "410"
+      ],
+      [
+        "Matcha Protein",
+        "Matcha · vanilla · banana · oat",
+        "390"
+      ],
+      [
+        "Blue Léman Protein",
+        "Blue spirulina · coconut · pineapple",
+        "395"
+      ]
+    ]
+  },
+  "cli": {
+    "label": "OUR CLIENTELE",
+    "title": "A club for lives in motion.",
+    "items": [
+      "EXECUTIVES & ENTREPRENEURS",
+      "COLOGNY RESIDENTS",
+      "COMPANIES",
+      "FAMILIES",
+      "CROSS-BORDER WORKERS",
+      "ATHLETES",
+      "ACTIVE SENIORS"
+    ]
+  },
+  "visit": {
+    "label": "FIRST VISIT",
+    "title": "Step into ONYX.",
+    "sub": "Leave your details. We will get back to you. Free demo session.",
+    "name": "NAME",
+    "namePh": "First Last",
+    "email": "EMAIL",
+    "emailPh": "you@example.com",
+    "send": "SEND",
+    "ok": "Thank you. We will contact you very soon."
+  },
+  "foot": [
+    "ON LAKE GENEVA",
+    "GENEVA",
+    "LEGAL NOTICE"
+  ],
+  "offers": {
+    "label": "THE ONYX EDIT",
+    "title": "A closer look at ONYX.",
+    "desc": "Personal coaching, considered programmes, movement, nourishment and well-being.",
+    "items": [
+      "Boxing",
+      "Yoga",
+      "Personal development",
+      "Exceptional activities",
+      "Sports & Well-being Day"
+    ]
+  },
+  "event": {
+    "label": "A DAY TO REMEMBER",
+    "title": "Sports & Well-being Day",
+    "desc": "A unique experience to energise your body, calm your mind and bring out your best.",
+    "button": "RELIVE THE DAY"
+  },
+  "detail": "DISCOVER"
+}

@@ -1,0 +1,312 @@
+{
+  "tarifs": {
+    "label": "MEMBERSHIP",
+    "title": "Move at your own pace.",
+    "intro": "Simple options to find your balance, with thoughtful support for your ambitions.",
+    "banner": "10% OFF FOR NEW MEMBERS",
+    "cards": [
+      [
+        "Open access",
+        "120 CHF / month",
+        "320 CHF / 3 months",
+        "Step into ONYX and build a routine that feels like yours."
+      ],
+      [
+        "Personal Training",
+        "120 CHF / 1h",
+        "1,100 CHF / 10h",
+        "A bespoke programme shaped around your goals."
+      ],
+      [
+        "Duo Training",
+        "150 CHF / 1h",
+        "1,350 CHF / 10h",
+        "Make progress together with the focus of private coaching."
+      ],
+      [
+        "Group classes",
+        "35 CHF / class",
+        "350 CHF / 10 classes",
+        "Shared energy and a session to push your limits."
+      ]
+    ]
+  },
+  "milkshakes": {
+    "label": "THE ONYX BAR",
+    "title": "A taste of balance.",
+    "intro": "Made with care, premium ingredients and 30 g of protein in every shake.",
+    "cards": [
+      [
+        "Onyx Protein",
+        "Black sesame · cacao · banana · oat milk · vanilla whey",
+        "Energy & recovery",
+        "400 kcal"
+      ],
+      [
+        "Mocha Protein",
+        "Espresso · cacao · banana · almond butter · chocolate whey",
+        "Focus & performance",
+        "410 kcal"
+      ],
+      [
+        "Matcha Protein",
+        "Matcha · vanilla · banana · oat milk · vanilla whey",
+        "Balance & antioxidants",
+        "390 kcal"
+      ],
+      [
+        "Blue Léman Protein",
+        "Blue spirulina · coconut · pineapple · coconut milk · vanilla whey",
+        "Hydration & vitality",
+        "395 kcal"
+      ]
+    ],
+    "note": "Natural premium ingredients · made for performance · homemade with care"
+  },
+  "equipe": {
+    "label": "THE PEOPLE",
+    "title": "Meet the coaches who move you forward.",
+    "intro": "Attentive guidance, committed expertise and support shaped around your pace.",
+    "cards": [
+      {
+        "name": "Camille Martin",
+        "role": "Yoga & mobility",
+        "bio": "A thoughtful approach to movement, breath and balance.",
+        "image": "/images/club/activity-yoga.jpg",
+        "imageAlt": "A guided yoga class in the ONYX studio",
+        "activities": [
+          {
+            "label": "Yoga & Pilates",
+            "slug": "yoga-pilates"
+          },
+          {
+            "label": "Stretching",
+            "slug": "stretching"
+          }
+        ]
+      },
+      {
+        "name": "Adrien Morel",
+        "role": "Boxing & conditioning",
+        "bio": "Technique in service of confidence, strength and endurance.",
+        "image": "/images/club/activity-boxing-coaching.jpg",
+        "imageAlt": "A coach leading a boxing session at ONYX Club",
+        "activities": [
+          {
+            "label": "Combat sports",
+            "slug": "boxe"
+          },
+          {
+            "label": "Bootcamp",
+            "slug": "bootcamp"
+          },
+          {
+            "label": "Strong Nation / Circle Mobility",
+            "slug": "strong-nation"
+          }
+        ]
+      },
+      {
+        "name": "Sarah Dupont",
+        "role": "Personal coaching",
+        "bio": "Focused support shaped around your goals and the energy you bring that day.",
+        "image": "/images/club/activity-personal-development.jpg",
+        "imageAlt": "A one-to-one coaching conversation at ONYX Club",
+        "activities": [
+          {
+            "label": "Private training",
+            "slug": "entrainement-prive"
+          },
+          {
+            "label": "Indoor running & endurance",
+            "slug": "course-a-pied"
+          },
+          {
+            "label": "Personal development",
+            "slug": "developpement-personnel"
+          }
+        ]
+      }
+    ]
+  },
+  "galerie": {
+    "label": "THE ONYX SPIRIT",
+    "title": "A place to experience.",
+    "intro": "A glimpse of movement, calm and connection on Lake Geneva.",
+    "cards": [
+      [
+        "The club",
+        "Club"
+      ],
+      [
+        "Listen to your body",
+        "Activities"
+      ],
+      [
+        "Together, in the studio",
+        "Events"
+      ],
+      [
+        "Collective energy",
+        "Activities"
+      ],
+      [
+        "The lake, every day",
+        "Club"
+      ]
+    ],
+    "filters": [
+      "ALL",
+      "Club",
+      "Activities",
+      "Events"
+    ]
+  },
+  "blog": {
+    "label": "ONYX JOURNAL",
+    "title": "Make movement a way of life.",
+    "intro": "Ideas to care for yourself, make progress and stay the course.",
+    "cards": [
+      [
+        "Breathe, move, begin again",
+        "Mindful movement starts with a simple act: paying attention to yourself."
+      ],
+      [
+        "The quiet strength of Pilates",
+        "Stability, breath and control: a few ways to understand the practice."
+      ],
+      [
+        "The lake as your training ground",
+        "How fresh Lake Geneva air can change the way a workout feels."
+      ]
+    ]
+  },
+  "faq": {
+    "label": "YOUR QUESTIONS",
+    "title": "Before your first visit.",
+    "intro": "Answers to the questions we hear most often.",
+    "cards": [
+      [
+        "How do I book a first session?",
+        "Send us a note through the form or call. We will find a time that works for you."
+      ],
+      [
+        "Do I need to be a member to attend?",
+        "Get in touch to explore first-visit options and activities open to guests."
+      ],
+      [
+        "Where is the club?",
+        "Find us at Chemin du Nant-d'Argent 1 in Cologny, on the shore of Lake Geneva."
+      ],
+      [
+        "What should I bring?",
+        "Comfortable clothes and a water bottle. We will let you know what you need for your activity."
+      ],
+      [
+        "Are sessions suitable for every level?",
+        "Your coach will adapt exercises to your experience and goals."
+      ]
+    ]
+  },
+  "contact": {
+    "label": "FIRST VISIT",
+    "title": "Let’s meet.",
+    "intro": "Tell us what you are looking for. We will reply personally.",
+    "cards": [
+      [
+        "Address",
+        "Chemin du Nant-d'Argent 1, Cologny (Geneva)"
+      ],
+      [
+        "Phone",
+        "078 613 70 21"
+      ],
+      [
+        "Email",
+        "contact@onyxclub.ch"
+      ],
+      [
+        "Hours",
+        "By appointment · contact us for availability"
+      ]
+    ],
+    "form": {
+      "name": "NAME",
+      "email": "EMAIL",
+      "phone": "PHONE",
+      "activity": "ACTIVITY",
+      "message": "YOUR MESSAGE",
+      "send": "SEND MY REQUEST",
+      "ok": "Thank you. We will be in touch soon."
+    }
+  },
+  "mentions-legales": {
+    "label": "INFORMATION",
+    "title": "Legal notice.",
+    "intro": "Information about onyxclub.ch.",
+    "cards": [
+      [
+        "Website publisher",
+        "Onyx Club · Chemin du Nant-d'Argent 1, Cologny, Geneva · contact@onyxclub.ch · 078 613 70 21"
+      ],
+      [
+        "Personal data",
+        "Information sent through our forms is used only to answer your enquiry. It is never resold."
+      ],
+      [
+        "Terms of use",
+        "Website content is provided for information. Offers and opening hours may change; contact the club for current details."
+      ]
+    ]
+  },
+  "evenement": {
+    "label": "ONYX GATHERING",
+    "title": "Sports & Well-being Day.",
+    "intro": "Relive a day to energise your body, calm your mind and bring out your best.",
+    "cards": [
+      [
+        "09:30 – 10:30",
+        "Pilates"
+      ],
+      [
+        "11:00 – 12:00",
+        "Yoga"
+      ],
+      [
+        "12:00 – 13:00",
+        "Personal development"
+      ],
+      [
+        "13:00 – 14:00",
+        "Boxing"
+      ],
+      [
+        "14:00 – 14:45",
+        "Strong Nation / Circle Mobility"
+      ],
+      [
+        "16:00 – 17:00",
+        "Stretching"
+      ]
+    ],
+    "form": {
+      "name": "NAME",
+      "email": "EMAIL",
+      "phone": "PHONE",
+      "phoneRequired": true,
+      "send": "JOIN THE WAITLIST",
+      "ok": "Thank you, you are on the list for the next edition.",
+      "message": "A NOTE FOR THE TEAM",
+      "messagePh": "Any preferences or specific needs?",
+      "choicesLabel": "SESSIONS YOU ARE INTERESTED IN",
+      "choices": [
+        "Pilates · 09:30–10:30",
+        "Yoga · 11:00–12:00",
+        "Personal development · 12:00–13:00",
+        "Boxing · 13:00–14:00",
+        "Strong Nation / Circle Mobility · 14:00–14:45",
+        "Stretching · 16:00–17:00"
+      ]
+    }
+  }
+}

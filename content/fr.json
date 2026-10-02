@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "Onyx Club | Sport · Lifestyle · Zen sur le lac Léman",
+    "desc": "Club privé de sport et bien-être à Cologny, Genève."
+  },
+  "nav": [
+    "LE CONCEPT",
+    "ACTIVITÉS",
+    "ÉVÉNEMENT",
+    "ÉQUIPE",
+    "AVIS",
+    "GALERIE",
+    "MILKSHAKES",
+    "CLIENTÈLE",
+    "RÉSERVER"
+  ],
+  "cta": "DEVENIR MEMBRE",
+  "hero": {
+    "tag": "SPORT · LIFESTYLE · ZEN · SUR LE LAC LÉMAN",
+    "title": "Un club à part.",
+    "btn": "DÉCOUVRIR"
+  },
+  "marquee": "SPORT • LIFESTYLE • ZEN • BOUGEZ • RESPIREZ • ÉVOLUEZ • ",
+  "concept": {
+    "label": "NOTRE CONCEPT",
+    "badge": "SPORT LIFESTYLE ZEN",
+    "title": "Un club privé. Rien de plus.",
+    "sub": "Sport, détente et vue panoramique au bord du lac Léman.",
+    "items": [
+      "STYLE UNIQUE",
+      "COMMUNAUTÉ",
+      "COACHING PERSONNALISÉ",
+      "VUE UNIQUE",
+      "SOIN ET RÉCUPÉRATION",
+      "NUTRITION & BIEN-ÊTRE"
+    ]
+  },
+  "acts": {
+    "label": "NOS ACTIVITÉS",
+    "title": "Des activités d'exception.",
+    "sub": "Choisissez votre rythme.",
+    "group": "Cours collectif 1h",
+    "single": "Individuel 1h",
+    "btn": "RÉSERVER UNE SÉANCE",
+    "items": [
+      [
+        "YOGA & PILATES",
+        "Yoga & Pilates guidés dans le studio · Pilates spécial récupération"
+      ],
+      [
+        "SPORTS DE COMBAT",
+        "Boxe Technic · Boxe Fitness · Muay Thaï · Sparring"
+      ],
+      [
+        "ENTRAÎNEMENT PRIVÉ",
+        "Personal Training · séance sur mesure"
+      ],
+      [
+        "COURSE À PIED",
+        "Running & endurance en intérieur"
+      ],
+      [
+        "DÉVELOPPEMENT PERSONNEL",
+        "Ateliers · préparation mentale 1h"
+      ],
+      [
+        "BOOTCAMP",
+        "Séances de bootcamp intensif"
+      ],
+      [
+        "STRONG NATION / CIRCLE MOBILITY",
+        "Cours rythmé et travail de mobilité en studio"
+      ],
+      [
+        "STRETCHING",
+        "Récupération et souplesse en salle"
+      ]
+    ]
+  },
+  "boxe": {
+    "title": "Maîtrise de soi & force.",
+    "text": "Agilité & endurance décuplées. Précision de l'action. Résilience & équilibre."
+  },
+  "reviews": {
+    "label": "AVIS",
+    "title": "Ils sont devenus membres.",
+    "items": [
+      [
+        "Un lieu unique, une énergie rare.",
+        "Membre, Cologny"
+      ],
+      [
+        "Le coaching change vraiment ma semaine.",
+        "Entrepreneur, Genève"
+      ],
+      [
+        "Le studio et son ambiance : inoubliables.",
+        "Membre, Genève"
+      ]
+    ]
+  },
+  "bar": {
+    "label": "NUTRITION BAR",
+    "title": "ONYX MILKSHAKES.",
+    "sub": "Protéines Clean Label, superaliments, goûts uniques pour booster vos performances.",
+    "kcal": "kcal · 30g protéines",
+    "shakes": [
+      [
+        "Onyx Protein",
+        "Sésame noir · cacao · banane · avoine",
+        "400"
+      ],
+      [
+        "Mocha Protein",
+        "Espresso · cacao · beurre d'amande",
+        "410"
+      ],
+      [
+        "Matcha Protein",
+        "Matcha · vanille · banane · avoine",
+        "390"
+      ],
+      [
+        "Blue Léman Protein",
+        "Spiruline bleue · coco · ananas",
+        "395"
+      ]
+    ]
+  },
+  "cli": {
+    "label": "NOTRE CLIENTÈLE",
+    "title": "Un club pour des vies en mouvement.",
+    "items": [
+      "CADRES & ENTREPRENEURS",
+      "RÉSIDENTS DE COLOGNY",
+      "ENTREPRISES",
+      "FAMILLES",
+      "FRONTALIERS",
+      "SPORTIFS",
+      "SENIORS ACTIFS"
+    ]
+  },
+  "visit": {
+    "label": "PREMIÈRE VISITE",
+    "title": "Entrer chez ONYX.",
+    "sub": "Laissez vos coordonnées. Nous vous recontacterons. Démonstration sans paiement.",
+    "name": "NOM",
+    "namePh": "Prénom Nom",
+    "email": "EMAIL",
+    "emailPh": "vous@exemple.com",
+    "send": "ENVOYER",
+    "ok": "Merci. Nous vous recontactons très vite."
+  },
+  "foot": [
+    "SUR LE LAC LÉMAN",
+    "GENÈVE",
+    "MENTIONS LÉGALES"
+  ],
+  "offers": {
+    "label": "NOS OFFRES EN IMAGE",
+    "title": "Nos offres en image.",
+    "desc": "Coaching privé personnalisé, programme adapté, activités, alimentation, bien-être.",
+    "items": [
+      "Boxe",
+      "Yoga",
+      "Développement personnel",
+      "Nos activités d’exception",
+      "Journée Sportive & Bien-être"
+    ]
+  },
+  "event": {
+    "label": "UNE DATE À REVIVRE",
+    "title": "La Journée Sportive & Bien-être",
+    "desc": "Une expérience unique pour booster votre corps, apaiser votre esprit et révéler le meilleur de vous-même.",
+    "button": "REVIVRE LA JOURNÉE"
+  },
+  "detail": "DÉCOUVRIR"
+}
