@@ -66,68 +66,7 @@
   "equipe": {
     "label": "LES VISAGES DU CLUB",
     "title": "Les coachs qui vous font progresser.",
-    "intro": "Des regards attentifs, une expertise engagée et un accompagnement adapté à votre rythme.",
-    "cards": [
-      {
-        "name": "Camille Martin",
-        "role": "Yoga & mobilité",
-        "bio": "Une approche attentive du mouvement, de la respiration et de l’équilibre.",
-        "image": "/images/club/activity-yoga.jpg",
-        "imageAlt": "Cours de yoga guidé dans le studio ONYX",
-        "activities": [
-          {
-            "label": "Yoga & Pilates",
-            "slug": "yoga-pilates"
-          },
-          {
-            "label": "Stretching",
-            "slug": "stretching"
-          }
-        ]
-      },
-      {
-        "name": "Adrien Morel",
-        "role": "Boxe & préparation physique",
-        "bio": "La technique au service de la confiance, de la puissance et de l’endurance.",
-        "image": "/images/club/activity-boxing-coaching.jpg",
-        "imageAlt": "Entraînement de boxe avec coach au club ONYX",
-        "activities": [
-          {
-            "label": "Sports de combat",
-            "slug": "boxe"
-          },
-          {
-            "label": "Bootcamp",
-            "slug": "bootcamp"
-          },
-          {
-            "label": "Strong Nation / Circle Mobility",
-            "slug": "strong-nation"
-          }
-        ]
-      },
-      {
-        "name": "Sarah Dupont",
-        "role": "Coaching individuel",
-        "bio": "Un accompagnement précis, construit autour de vos objectifs et de votre énergie.",
-        "image": "/images/club/activity-personal-development.jpg",
-        "imageAlt": "Échange individuel avec un coach ONYX",
-        "activities": [
-          {
-            "label": "Entraînement privé",
-            "slug": "entrainement-prive"
-          },
-          {
-            "label": "Running & endurance en intérieur",
-            "slug": "course-a-pied"
-          },
-          {
-            "label": "Développement personnel",
-            "slug": "developpement-personnel"
-          }
-        ]
-      }
-    ]
+    "intro": "Des regards attentifs, une expertise engagée et un accompagnement adapté à votre rythme."
   },
   "galerie": {
     "label": "L'ESPRIT ONYX",
