@@ -4,6 +4,25 @@ export type BookingActivity = {
   formats: string[];
 };
 
+export const homeLeadCopy = {
+  fr: {
+    name: 'NOM COMPLET',
+    namePh: 'Prénom Nom',
+    email: 'E-MAIL',
+    emailPh: 'vous@exemple.com',
+    send: 'ÊTRE RECONTACTÉ',
+    ok: 'Merci. L’équipe ONYX vous recontactera bientôt.'
+  },
+  en: {
+    name: 'FULL NAME',
+    namePh: 'First Last',
+    email: 'EMAIL',
+    emailPh: 'you@example.com',
+    send: 'REQUEST A CALL BACK',
+    ok: 'Thank you. The ONYX team will be in touch soon.'
+  }
+} as const;
+
 export const bookingCopy = {
   fr: {
     name: 'NOM COMPLET',
