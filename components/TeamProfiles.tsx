@@ -53,6 +53,7 @@ export default function TeamProfiles({ members, lang, compact = false }: { membe
                   ? <a href={member.instagramUrl} target="_blank" rel="noreferrer">{member.instagram} ↗</a>
                   : <span className="team-instagram-pending">{fr ? 'Instagram à confirmer' : 'Instagram to be confirmed'}</span>}
                 {member.activities.map(activity => <a href={`/${lang}/activites/${activity.slug}/`} key={activity.slug}>{activity.label[lang]} ↗</a>)}
+                <a href={`/${lang}/equipe/${member.slug}/`}>{fr ? 'Profil & réservation' : 'Profile & booking'} ↗</a>
               </div>
             </div>
             <button type="button" className="team-reveal" aria-expanded={isExpanded} onClick={() => setExpanded(isExpanded ? null : member.name)}>

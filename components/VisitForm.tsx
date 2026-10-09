@@ -10,7 +10,7 @@ type T = {
   choicesLabel?:string;choices?:readonly string[];
 };
 
-export default function VisitForm({t,endpoint,to,defaultActivity}:{t:T;endpoint:string;to:string;defaultActivity?:string}){
+export default function VisitForm({t,endpoint,to,defaultActivity,defaultCoach}:{t:T;endpoint:string;to:string;defaultActivity?:string;defaultCoach?:string}){
   const [status,setStatus]=useState('');
   const [activity,setActivity]=useState(defaultActivity||'');
   const formats=t.activities?.find(item=>item.slug===activity)?.formats||[];
@@ -24,7 +24,8 @@ export default function VisitForm({t,endpoint,to,defaultActivity}:{t:T;endpoint:
     if(!endpoint){
       const lines:string[]=[];
       data.forEach((value,key)=>{if(key!=='website')lines.push(`${key}: ${value}`)});
-      const subject=chosenActivity?`Onyx Club — ${chosenActivity.label}`:'Onyx Club';
+      const coach=data.get('coach');
+      const subject=[coach,chosenActivity?.label].filter(Boolean).join(' — ')||'Onyx Club';
       window.location.href=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
       return;
     }
@@ -36,6 +37,7 @@ export default function VisitForm({t,endpoint,to,defaultActivity}:{t:T;endpoint:
 
   if(status==='ok')return <p className="ok" role="status">{t.ok}</p>;
   return <form onSubmit={submit} className={t.activities||t.choices?'booking-form':''}>
+    {defaultCoach&&<input type="hidden" name="coach" value={defaultCoach}/>}
     <label>{t.name}<input name="name" required placeholder={t.namePh||(t.name==='NOM'?'Prénom Nom':'First Last')} autoComplete="name"/></label>
     <label>{t.email}<input name="email" type="email" required placeholder={t.emailPh||(t.email==='E-MAIL'?'vous@exemple.com':'you@example.com')} autoComplete="email"/></label>
     {t.phone&&<label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required={!!t.activities||!!t.phoneRequired}/></label>}
