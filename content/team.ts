@@ -5,46 +5,43 @@ export type TeamMember = {
   role: Record<TeamLanguage, string>;
   bio: Record<TeamLanguage, string>;
   image: string;
-  instagram: string;
-  instagramUrl: string;
+  instagram?: string;
+  instagramUrl?: string;
   activities: { label: Record<TeamLanguage, string>; slug: string }[];
 };
 
 export const teamMembers: TeamMember[] = [
   {
-    name: 'Coach 01', role: { fr: 'Entraînement privé', en: 'Personal training' },
-    bio: { fr: 'Renforcement, forme et progression à votre rythme.', en: 'Strength, fitness and progress at your pace.' },
-    image: '/images/team/coach-01.jpg', instagram: '@coach_01_demo', instagramUrl: 'https://www.instagram.com/coach_01_demo/',
-    activities: [{ label: { fr: 'Entraînement privé', en: 'Private training' }, slug: 'entrainement-prive' }]
+    name: 'Sylvain', role: { fr: 'Stretching & entraînement privé', en: 'Stretching & personal training' },
+    bio: { fr: 'Stretching et entraînement personnel adaptés à vos objectifs.', en: 'Stretching and personal training tailored to your goals.' },
+    image: '/images/team/coach-01.jpg', instagram: '@sylvain.coach.sportif', instagramUrl: 'https://www.instagram.com/sylvain.coach.sportif/',
+    activities: [
+      { label: { fr: 'Stretching', en: 'Stretching' }, slug: 'stretching' },
+      { label: { fr: 'Entraînement privé', en: 'Personal training' }, slug: 'entrainement-prive' }
+    ]
   },
   {
-    name: 'Coach 02', role: { fr: 'Yoga & Pilates', en: 'Yoga & Pilates' },
-    bio: { fr: 'Mouvement, respiration et équilibre.', en: 'Movement, breath and balance.' },
-    image: '/images/team/coach-02.jpg', instagram: '@coach_02_demo', instagramUrl: 'https://www.instagram.com/coach_02_demo/',
-    activities: [{ label: { fr: 'Yoga & Pilates', en: 'Yoga & Pilates' }, slug: 'yoga-pilates' }]
+    name: 'Halim', role: { fr: 'Boxe', en: 'Boxing' },
+    bio: { fr: 'Séances de boxe axées sur la technique et la progression.', en: 'Boxing sessions focused on technique and progress.' },
+    image: '/images/team/coach-03.jpg', instagram: '@urbanboxing.gva', instagramUrl: 'https://www.instagram.com/urbanboxing.gva/',
+    activities: [{ label: { fr: 'Boxe', en: 'Boxing' }, slug: 'boxe' }]
   },
   {
-    name: 'Coach 03', role: { fr: 'Coaching sportif', en: 'Strength coaching' },
-    bio: { fr: 'Un accompagnement individuel pour développer force et confiance.', en: 'One-to-one support to build strength and confidence.' },
-    image: '/images/team/coach-03.jpg', instagram: '@coach_03_demo', instagramUrl: 'https://www.instagram.com/coach_03_demo/',
-    activities: [{ label: { fr: 'Entraînement privé', en: 'Private training' }, slug: 'entrainement-prive' }]
+    name: 'Marjorie', role: { fr: 'Zumba & Strong Mobility', en: 'Zumba & Strong Mobility' },
+    bio: { fr: 'Des séances rythmées qui associent énergie et mobilité.', en: 'Music-led sessions combining energy and mobility.' },
+    image: '/images/team/coach-05.jpg', instagram: '@mayuratas.rojas', instagramUrl: 'https://www.instagram.com/mayuratas.rojas/',
+    activities: [{ label: { fr: 'Zumba / Strong Mobility', en: 'Zumba / Strong Mobility' }, slug: 'strong-nation' }]
   },
   {
-    name: 'Coach 04', role: { fr: 'Yoga & mobilité', en: 'Yoga & mobility' },
-    bio: { fr: 'Des séances pour gagner en mobilité et retrouver de l’énergie.', en: 'Sessions to improve mobility and restore energy.' },
-    image: '/images/team/coach-04.jpg', instagram: '@coach_04_demo', instagramUrl: 'https://www.instagram.com/coach_04_demo/',
-    activities: [{ label: { fr: 'Stretching', en: 'Stretching' }, slug: 'stretching' }]
+    name: 'Sabrina', role: { fr: 'Développement personnel', en: 'Personal development' },
+    bio: { fr: 'Ateliers et accompagnement en développement personnel.', en: 'Workshops and personal development coaching.' },
+    image: '/images/team/coach-04.jpg', instagram: '@phoenix_onyxcoach', instagramUrl: 'https://www.instagram.com/phoenix_onyxcoach/',
+    activities: [{ label: { fr: 'Développement personnel', en: 'Personal development' }, slug: 'developpement-personnel' }]
   },
   {
-    name: 'Coach 05', role: { fr: 'Conditionnement physique', en: 'Functional training' },
-    bio: { fr: 'Entraînement dynamique axé sur la force et l’endurance.', en: 'Dynamic training focused on strength and endurance.' },
-    image: '/images/team/coach-05.jpg', instagram: '@coach_05_demo', instagramUrl: 'https://www.instagram.com/coach_05_demo/',
-    activities: [{ label: { fr: 'Strong Nation / Circle Mobility', en: 'Strong Nation / Circle Mobility' }, slug: 'strong-nation' }]
-  },
-  {
-    name: 'Coach 06', role: { fr: 'Boxe & sports de combat', en: 'Boxing & combat sports' },
-    bio: { fr: 'Technique, intensité maîtrisée et progression.', en: 'Technique, controlled intensity and steady progress.' },
-    image: '/images/team/coach-06.jpg', instagram: '@coach_06_demo', instagramUrl: 'https://www.instagram.com/coach_06_demo/',
-    activities: [{ label: { fr: 'Sports de combat', en: 'Combat sports' }, slug: 'boxe' }]
+    name: 'Melanie', role: { fr: 'Pilates', en: 'Pilates' },
+    bio: { fr: 'Séances de Pilates guidées pour renforcer et équilibrer le corps.', en: 'Guided Pilates sessions to strengthen and balance the body.' },
+    image: '/images/team/coach-02.jpg',
+    activities: [{ label: { fr: 'Pilates', en: 'Pilates' }, slug: 'yoga-pilates' }]
   }
 ];
