@@ -40,7 +40,9 @@ export default function TeamProfiles({ members, lang, compact = false }: { membe
     <div className="team-carousel-track" ref={track} onScroll={updateTrack}>
       {members.map((member, index) => {
         const isExpanded = expanded === member.name;
-        return <article className={`team-card${isExpanded ? ' is-open' : ''}`} key={member.name} role="group" aria-roledescription={fr ? 'diapositive' : 'slide'} aria-label={`${member.name}, ${index + 1} ${fr ? 'sur' : 'of'} ${members.length}`}>
+        const isActive = index === active;
+        const isPreview = index === active + 1;
+        return <article className={`team-card${isActive ? ' is-active' : ''}${isPreview ? ' is-preview' : ''}${isExpanded ? ' is-open' : ''}`} key={member.name} role="group" aria-roledescription={fr ? 'diapositive' : 'slide'} aria-label={`${member.name}, ${index + 1} ${fr ? 'sur' : 'of'} ${members.length}`}>
           <div className="team-photo-wrap">
             <Image className="team-photo-image" src={member.image} alt={`${member.role[lang]} · ${member.name}`} fill sizes="(max-width: 700px) 88vw, (max-width: 1100px) 48vw, 34vw" unoptimized/>
             <span className="team-photo-shade"/>
@@ -63,6 +65,6 @@ export default function TeamProfiles({ members, lang, compact = false }: { membe
         </article>;
       })}
     </div>
-    {!compact && <p className="team-carousel-hint">{fr ? 'Survolez un portrait ou touchez « Voir le profil ».' : 'Hover over a portrait or tap “View profile”.'}</p>}
+    <p className="team-carousel-hint">{fr ? 'Faites glisser pour découvrir chaque coach · Touchez « Voir le profil ».' : 'Swipe to discover each coach · Tap “View profile”.'}</p>
   </div>;
 }
