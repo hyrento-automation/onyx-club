@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-const destinations = ['concept','activites','evenement','equipe','avis','galerie','milkshakes','clientele','reserver'];
+const destinations = ['concept','activites','evenement','equipe','avis','milkshakes','clientele','reserver'];
 const sectionDestinations:Record<string,string>={concept:'concept',activites:'activites',avis:'avis',clientele:'clientele',reserver:'reserver'};
 export default function Header({ lang, nav, cta }: { lang: string; nav: string[]; cta: string }) {
   const [scrolled,setScrolled]=useState(false); const [hidden,setHidden]=useState(false); const [open,setOpen]=useState(false);

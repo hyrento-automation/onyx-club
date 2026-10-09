@@ -34,8 +34,8 @@ export default function CoachProfile({ params }: { params: { lang: string; slug:
   const activities = copy.activities.filter(item => member.activities.some(activity => activity.slug === item.slug));
   const formCopy = { ...copy, activities };
   const nav = fr
-    ? ['LE CONCEPT', 'ACTIVITÉS', 'ÉVÉNEMENT', 'ÉQUIPE', 'AVIS', 'GALERIE', 'MILKSHAKES', 'CLIENTÈLE', 'RÉSERVER']
-    : ['CONCEPT', 'ACTIVITIES', 'EVENT', 'TEAM', 'REVIEWS', 'GALLERY', 'SHAKES', 'COMMUNITY', 'BOOK'];
+    ? ['LE CONCEPT', 'ACTIVITÉS', 'ÉVÉNEMENT', 'ÉQUIPE', 'AVIS', 'MILKSHAKES', 'CLIENTÈLE', 'RÉSERVER']
+    : ['CONCEPT', 'ACTIVITIES', 'EVENT', 'TEAM', 'REVIEWS', 'SHAKES', 'COMMUNITY', 'BOOK'];
   const defaultActivity = member.activities.length === 1 ? member.activities[0].slug : undefined;
 
   return <><Effects/><Header lang={lang} nav={nav} cta={fr ? 'RÉSERVER UNE SÉANCE' : 'BOOK A SESSION'}/><main className="coach-profile">
