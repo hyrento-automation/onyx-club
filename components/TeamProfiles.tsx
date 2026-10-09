@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { TeamLanguage, TeamMember } from '@/content/team';
 
 export default function TeamProfiles({ members, lang, compact = false }: { members: TeamMember[]; lang: TeamLanguage; compact?: boolean }) {
@@ -10,17 +10,36 @@ export default function TeamProfiles({ members, lang, compact = false }: { membe
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const updateFrame = useRef<number | null>(null);
   const fr = lang === 'fr';
+
+  useEffect(() => () => {
+    if (updateFrame.current !== null) cancelAnimationFrame(updateFrame.current);
+  }, []);
 
   function updateTrack() {
     const element = track.current;
-    if (!element) return;
-    const first = element.firstElementChild as HTMLElement | null;
-    const gap = parseFloat(getComputedStyle(element).columnGap || '0');
-    const step = first ? first.offsetWidth + gap : element.clientWidth;
-    setActive(step ? Math.min(members.length - 1, Math.round(element.scrollLeft / step)) : 0);
-    setAtStart(element.scrollLeft <= 2);
-    setAtEnd(element.scrollLeft + element.clientWidth >= element.scrollWidth - 2);
+    if (!element || updateFrame.current !== null) return;
+    updateFrame.current = requestAnimationFrame(() => {
+      updateFrame.current = null;
+      const cards = Array.from(element.children) as HTMLElement[];
+      if (!cards.length) return;
+      const trackCenter = element.getBoundingClientRect().left + element.clientWidth / 2;
+      let closest = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.left + rect.width / 2 - trackCenter);
+        if (distance < closestDistance) {
+          closest = index;
+          closestDistance = distance;
+        }
+      });
+      setActive(current => current === closest ? current : closest);
+      setAtStart(current => current === (element.scrollLeft <= 2) ? current : element.scrollLeft <= 2);
+      const end = element.scrollLeft + element.clientWidth >= element.scrollWidth - 2;
+      setAtEnd(current => current === end ? current : end);
+    });
   }
 
   function move(direction: -1 | 1) {
@@ -37,7 +56,7 @@ export default function TeamProfiles({ members, lang, compact = false }: { membe
       <button type="button" className="team-carousel-arrow" aria-label={fr ? 'Coach précédent' : 'Previous coach'} onClick={() => move(-1)} disabled={atStart}>←</button>
       <button type="button" className="team-carousel-arrow" aria-label={fr ? 'Coach suivant' : 'Next coach'} onClick={() => move(1)} disabled={atEnd}>→</button>
     </div>
-    <div className="team-carousel-track" ref={track} onScroll={updateTrack}>
+    <div className="team-carousel-track" ref={track} onScroll={updateTrack} onTouchEnd={updateTrack}>
       {members.map((member, index) => {
         const isExpanded = expanded === member.name;
         const isActive = index === active;
