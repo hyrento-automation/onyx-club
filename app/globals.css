@@ -124,3 +124,34 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button,a{-webkit-
 .hr .menu-toggle.open span:first-child{transform:translateY(3.5px) rotate(45deg)}
 .hr .menu-toggle.open span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
 @media(max-width:760px){.hr .menu-toggle{display:block}}
+
+/* Quiet interaction polish: short, tactile responses with no constant motion. */
+@media (hover:hover) and (pointer:fine){
+  .hd nav.desktop-nav a{position:relative;padding-block:.35rem}
+  .hd nav.desktop-nav a::after{position:absolute;right:0;bottom:0;left:0;height:1px;content:"";background:linear-gradient(90deg,var(--copper-deep),var(--copper-light));transform:scaleX(0);transform-origin:left;transition:transform .32s cubic-bezier(.2,.7,.2,1)}
+  .hd nav.desktop-nav a:hover::after,.hd nav.desktop-nav a:focus-visible::after{transform:scaleX(1)}
+  .shake-product,.milkshake-card-product{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s}
+  .shake:hover .shake-product,.milkshake-cards .content-card:hover .milkshake-card-product{transform:scale(1.025);filter:saturate(1.04)}
+}
+.btn,.team-carousel-arrow,.team-reveal,.mobile-menu a{touch-action:manipulation}
+.btn:active,.team-carousel-arrow:active,.team-reveal:active,.home-team-links a:active{transform:scale(.975);filter:brightness(.96)}
+.booking-success{display:flex;align-items:center;gap:1rem;width:fit-content;max-width:100%;padding:1rem 1.2rem;border:1px solid #b8733350;border-radius:14px;background:linear-gradient(135deg,#1b1510,#0b0a09);animation:success-arrive .45s cubic-bezier(.2,.7,.2,1) both}
+.booking-success-mark{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;color:var(--copper-light)}
+.booking-success-mark svg{width:38px;height:38px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.booking-success-mark circle{stroke-dasharray:132;stroke-dashoffset:132;animation:success-draw .65s .08s ease-out forwards}
+.booking-success-mark path{stroke-dasharray:32;stroke-dashoffset:32;animation:success-draw .32s .52s ease-out forwards}
+.booking-success .ok{margin:0;color:var(--text);font-size:.9rem;line-height:1.5}
+@keyframes success-draw{to{stroke-dashoffset:0}}
+@keyframes success-arrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){
+  .mobile-menu a{opacity:0;transform:translateY(8px);transition:opacity .22s ease,transform .32s cubic-bezier(.2,.7,.2,1)}
+  .mobile-menu.open a{opacity:1;transform:translateY(0)}
+  .mobile-menu.open a:nth-child(1){transition-delay:.04s}.mobile-menu.open a:nth-child(2){transition-delay:.075s}.mobile-menu.open a:nth-child(3){transition-delay:.11s}.mobile-menu.open a:nth-child(4){transition-delay:.145s}.mobile-menu.open a:nth-child(5){transition-delay:.18s}.mobile-menu.open a:nth-child(6){transition-delay:.215s}.mobile-menu.open a:nth-child(7){transition-delay:.25s}.mobile-menu.open a:nth-child(8){transition-delay:.285s}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv,.rv.in{opacity:1;transform:none;transition:none}
+  .foil,.mq span,.scroll-cue span,.booking-success,.booking-success-mark circle,.booking-success-mark path{animation:none}
+  .booking-success-mark circle,.booking-success-mark path{stroke-dashoffset:0}
+  .btn,.card,.poster,.team-photo-image,.home-team-photo,.shake-product,.milkshake-card-product,.hd nav.desktop-nav a::after,.mobile-menu a{transition:none}
+}

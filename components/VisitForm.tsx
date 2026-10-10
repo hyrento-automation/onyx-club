@@ -35,7 +35,10 @@ export default function VisitForm({t,endpoint,to,defaultActivity,defaultCoach}:{
     }catch{setStatus('err')}
   }
 
-  if(status==='ok')return <p className="ok" role="status">{t.ok}</p>;
+  if(status==='ok')return <div className="booking-success" role="status" aria-live="polite">
+    <span className="booking-success-mark" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="21"/><path d="m14 24 7 7 14-15"/></svg></span>
+    <p className="ok">{t.ok}</p>
+  </div>;
   return <form onSubmit={submit} className={t.activities||t.choices?'booking-form':''}>
     {defaultCoach&&<input type="hidden" name="coach" value={defaultCoach}/>}
     <label>{t.name}<input name="name" required placeholder={t.namePh||(t.name==='NOM'?'Prénom Nom':'First Last')} autoComplete="name"/></label>
