@@ -2,14 +2,15 @@
   "tarifs": {
     "label": "MEMBERSHIP",
     "title": "Move at your own pace.",
-    "intro": "Simple options to find your balance, with thoughtful support for your ambitions.",
-    "banner": "10% OFF FOR NEW MEMBERS",
+    "intro": "More than a gym: a space dedicated to your fitness, mobility and well-being.",
+    "banner": "LAUNCH OFFER · OPEN ACCESS",
+    "note": "CHF 100 / month for the first 20 members · club limited to 50 members",
     "cards": [
       [
         "Open access",
-        "120 CHF / month",
-        "320 CHF / 3 months",
-        "Step into ONYX and build a routine that feels like yours."
+        "100 CHF / month",
+        "Offer for the first 20 members",
+        "Step into ONYX and build a routine that feels like yours · maximum 50 members."
       ],
       [
         "Personal Training",

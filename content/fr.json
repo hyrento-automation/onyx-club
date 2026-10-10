@@ -16,8 +16,15 @@
   "cta": "DEVENIR MEMBRE",
   "hero": {
     "tag": "SPORT · LIFESTYLE · ZEN · SUR LE LAC LÉMAN",
-    "title": "Un club à part.",
+    "title": "Plus qu'une salle de sport.",
     "btn": "DÉCOUVRIR"
+  },
+  "launch": {
+    "label": "OFFRE DE LANCEMENT · ACCÈS LIBRE",
+    "price": "100 CHF / mois",
+    "detail": "Pour les 20 premiers membres · 50 membres maximum",
+    "activities": "Personal Training · Strong Mobility · Coaching Mental · Yoga · Stretching · Pilates · Boxe",
+    "button": "DÉCOUVRIR LES TARIFS"
   },
   "marquee": "SPORT • LIFESTYLE • ZEN • BOUGEZ • RESPIREZ • ÉVOLUEZ • ",
   "concept": {

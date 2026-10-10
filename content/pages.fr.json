@@ -2,14 +2,15 @@
   "tarifs": {
     "label": "LES CONDITIONS",
     "title": "Le mouvement, à votre rythme.",
-    "intro": "Des formules simples pour trouver votre équilibre, avec un accompagnement à la hauteur de vos ambitions.",
-    "banner": "-10% POUR LES NOUVEAUX MEMBRES",
+    "intro": "Plus qu'une salle de sport : un espace dédié à votre forme, votre mobilité et votre bien-être.",
+    "banner": "OFFRE DE LANCEMENT · ACCÈS LIBRE",
+    "note": "100 CHF / mois pour les 20 premiers membres · 50 membres maximum au club",
     "cards": [
       [
         "Accès libre",
-        "120 CHF / mois",
-        "320 CHF / 3 mois",
-        "Accédez à l'univers ONYX et composez votre propre routine."
+        "100 CHF / mois",
+        "Offre réservée aux 20 premiers membres",
+        "Accédez à l'univers ONYX et composez votre propre routine · 50 membres maximum."
       ],
       [
         "Personal Training",

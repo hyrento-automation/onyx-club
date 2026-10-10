@@ -16,8 +16,15 @@
   "cta": "BECOME A MEMBER",
   "hero": {
     "tag": "SPORT · LIFESTYLE · ZEN · ON LAKE GENEVA",
-    "title": "A club apart.",
+    "title": "More than a gym.",
     "btn": "DISCOVER"
+  },
+  "launch": {
+    "label": "LAUNCH OFFER · OPEN ACCESS",
+    "price": "CHF 100 / month",
+    "detail": "For the first 20 members · maximum 50 members",
+    "activities": "Personal Training · Strong Mobility · Mental Coaching · Yoga · Stretching · Pilates · Boxing",
+    "button": "EXPLORE MEMBERSHIP"
   },
   "marquee": "SPORT • LIFESTYLE • ZEN • MOVE • BREATHE • EVOLVE • ",
   "concept": {
