@@ -36,13 +36,13 @@ export const teamMembers: TeamMember[] = [
   {
     slug: 'sabrina', name: 'Sabrina', role: { fr: 'Développement personnel', en: 'Personal development' },
     bio: { fr: 'Ateliers et accompagnement en développement personnel.', en: 'Workshops and personal development coaching.' },
-    image: '/images/team/coach-04.jpg', instagram: '@phoenix_onyxcoach', instagramUrl: 'https://www.instagram.com/phoenix_onyxcoach/',
+    image: '/images/team/sabrina-profile.webp', instagram: '@phoenix_onyxcoach', instagramUrl: 'https://www.instagram.com/phoenix_onyxcoach/',
     activities: [{ label: { fr: 'Développement personnel', en: 'Personal development' }, slug: 'developpement-personnel' }]
   },
   {
     slug: 'melanie', name: 'Melanie', role: { fr: 'Pilates', en: 'Pilates' },
     bio: { fr: 'Séances de Pilates guidées pour renforcer et équilibrer le corps.', en: 'Guided Pilates sessions to strengthen and balance the body.' },
-    image: '/images/team/coach-02.jpg',
+    image: '/images/team/melanie-profile.webp',
     activities: [{ label: { fr: 'Pilates', en: 'Pilates' }, slug: 'yoga-pilates' }]
   }
 ];
