@@ -6,6 +6,7 @@ export type TeamMember = {
   role: Record<TeamLanguage, string>;
   bio: Record<TeamLanguage, string>;
   image: string;
+  imagePosition?: string;
   instagram?: string;
   instagramUrl?: string;
   activities: { label: Record<TeamLanguage, string>; slug: string }[];
@@ -15,7 +16,7 @@ export const teamMembers: TeamMember[] = [
   {
     slug: 'sylvain', name: 'Sylvain', role: { fr: 'Stretching & entraînement privé', en: 'Stretching & personal training' },
     bio: { fr: 'Stretching et entraînement personnel adaptés à vos objectifs.', en: 'Stretching and personal training tailored to your goals.' },
-    image: '/images/team/sylvain-profile.webp', instagram: '@sylvain.coach.sportif', instagramUrl: 'https://www.instagram.com/sylvain.coach.sportif/',
+    image: '/images/team/sylvain-profile.webp', imagePosition: '50% 24%', instagram: '@sylvain.coach.sportif', instagramUrl: 'https://www.instagram.com/sylvain.coach.sportif/',
     activities: [
       { label: { fr: 'Stretching', en: 'Stretching' }, slug: 'stretching' },
       { label: { fr: 'Entraînement privé', en: 'Personal training' }, slug: 'entrainement-prive' }
@@ -24,7 +25,7 @@ export const teamMembers: TeamMember[] = [
   {
     slug: 'halim', name: 'Halim', role: { fr: 'Boxe', en: 'Boxing' },
     bio: { fr: 'Séances de boxe axées sur la technique et la progression.', en: 'Boxing sessions focused on technique and progress.' },
-    image: '/images/team/halim-profile.webp', instagram: '@urbanboxing.gva', instagramUrl: 'https://www.instagram.com/urbanboxing.gva/',
+    image: '/images/team/halim-profile.webp', imagePosition: '50% 18%', instagram: '@urbanboxing.gva', instagramUrl: 'https://www.instagram.com/urbanboxing.gva/',
     activities: [{ label: { fr: 'Boxe', en: 'Boxing' }, slug: 'boxe' }]
   },
   {
@@ -40,9 +41,9 @@ export const teamMembers: TeamMember[] = [
     activities: [{ label: { fr: 'Développement personnel', en: 'Personal development' }, slug: 'developpement-personnel' }]
   },
   {
-    slug: 'melanie', name: 'Melanie', role: { fr: 'Pilates', en: 'Pilates' },
-    bio: { fr: 'Séances de Pilates guidées pour renforcer et équilibrer le corps.', en: 'Guided Pilates sessions to strengthen and balance the body.' },
+    slug: 'amanda', name: 'Amanda', role: { fr: 'Yoga', en: 'Yoga' },
+    bio: { fr: 'Séances de Yoga guidées pour renforcer et équilibrer le corps.', en: 'Guided yoga sessions to strengthen and balance the body.' },
     image: '/images/team/melanie-profile.webp',
-    activities: [{ label: { fr: 'Pilates', en: 'Pilates' }, slug: 'yoga-pilates' }]
+    activities: [{ label: { fr: 'Yoga', en: 'Yoga' }, slug: 'yoga-pilates' }]
   }
 ];

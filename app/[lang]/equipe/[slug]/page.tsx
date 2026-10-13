@@ -31,7 +31,11 @@ export default function CoachProfile({ params }: { params: { lang: string; slug:
   const lang = getLang(params.lang);
   const fr = lang === 'fr';
   const copy = bookingCopy[lang];
-  const activities = copy.activities.filter(item => member.activities.some(activity => activity.slug === item.slug));
+  const activities = copy.activities.filter(item => member.activities.some(activity => activity.slug === item.slug)).map(item => ({
+    ...item,
+    label: member.activities.find(activity => activity.slug === item.slug)?.label[lang] ?? item.label,
+    formats: member.slug === 'amanda' && item.slug === 'yoga-pilates' ? ['Yoga'] : item.formats
+  }));
   const formCopy = { ...copy, activities };
   const nav = fr
     ? ['LE CONCEPT', 'ACTIVITÉS', 'ÉVÉNEMENT', 'ÉQUIPE', 'AVIS', 'MILKSHAKES', 'CLIENTÈLE', 'RÉSERVER']
@@ -41,7 +45,7 @@ export default function CoachProfile({ params }: { params: { lang: string; slug:
   return <><Effects/><Header lang={lang} nav={nav} cta={fr ? 'RÉSERVER UNE SÉANCE' : 'BOOK A SESSION'}/><main className="coach-profile">
     <section className="coach-profile-hero">
       <div className="coach-profile-photo">
-        <Image src={member.image} alt={`${member.name} · ${member.role[lang]}`} fill priority sizes="(max-width: 760px) 100vw, 48vw" unoptimized/>
+        <Image src={member.image} alt={`${member.name} · ${member.role[lang]}`} fill priority sizes="(max-width: 760px) 100vw, 48vw" style={{ objectPosition: member.imagePosition ?? 'center 28%' }} unoptimized/>
       </div>
       <div className="coach-profile-intro">
         <p className="lab">{fr ? 'COACH ONYX' : 'ONYX COACH'}</p>

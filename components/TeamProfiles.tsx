@@ -80,7 +80,7 @@ export default function TeamProfiles({ members, lang, compact = false }: { membe
         const isPreview = index === activeSlide + 1;
         return <article className={`team-card${isActive ? ' is-active' : ''}${isPreview ? ' is-preview' : ''}`} key={`${copy}-${member.slug}`} role="group" aria-roledescription={fr ? 'diapositive' : 'slide'} aria-label={`${member.name}, ${memberIndex + 1} ${fr ? 'sur' : 'of'} ${members.length}`}>
           <div className="team-photo-wrap">
-            <Image className="team-photo-image" src={member.image} alt={`${member.role[lang]} · ${member.name}`} fill sizes="(max-width: 700px) 88vw, (max-width: 1100px) 48vw, 34vw" unoptimized/>
+            <Image className="team-photo-image" src={member.image} alt={`${member.role[lang]} · ${member.name}`} fill sizes="(max-width: 700px) 88vw, (max-width: 1100px) 48vw, 34vw" style={{ objectPosition: member.imagePosition ?? 'center' }} unoptimized/>
             <span className="team-photo-shade"/>
             <div className="team-slide-details">
               <p className="team-role">{member.role[lang]}</p>
