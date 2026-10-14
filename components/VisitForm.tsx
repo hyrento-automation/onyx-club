@@ -21,14 +21,6 @@ export default function VisitForm({t,endpoint,to,defaultActivity,defaultCoach}:{
     if(data.get('website'))return;
     const chosenActivity=t.activities?.find(item=>item.slug===data.get('activity'));
     if(chosenActivity)data.set('activity',chosenActivity.label);
-    if(!endpoint){
-      const lines:string[]=[];
-      data.forEach((value,key)=>{if(key!=='website')lines.push(`${key}: ${value}`)});
-      const coach=data.get('coach');
-      const subject=[coach,chosenActivity?.label].filter(Boolean).join(' — ')||'Onyx Club';
-      window.location.href=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
-      return;
-    }
     try{
       const response=await fetch(endpoint,{method:'POST',body:data,headers:{Accept:'application/json'}});
       setStatus(response.ok?'ok':'err');
