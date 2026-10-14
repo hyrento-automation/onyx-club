@@ -5,5 +5,5 @@ const serif=Cormorant_Garamond({subsets:['latin'],weight:['400','500','600'],var
 const sans=Inter({subsets:['latin'],variable:'--sans',display:'swap'});
 export const dynamicParams=false;
 export function generateStaticParams(){return [{lang:'fr'},{lang:'en'}]}
-export function generateMetadata({params}:{params:{lang:string}}){const lang=getLang(params.lang),d=getDict(lang);return {title:d.meta.title,description:d.meta.desc,alternates:{canonical:`/${lang}/`,languages:{'fr-CH':'/fr/','en':'/en/','x-default':'/fr/'}},openGraph:{title:d.meta.title,description:d.meta.desc,locale:lang==='fr'?'fr_CH':'en_GB',type:'website'}}}
-export default function LanguageLayout({children,params}:{children:React.ReactNode;params:{lang:string}}){return <div lang={params.lang} className={`${serif.variable} ${sans.variable}`}><PageTransition>{children}</PageTransition></div>}
+export async function generateMetadata({params}:{params:Promise<{lang:string}>}){const {lang:rawLang}=await params,lang=getLang(rawLang),d=getDict(lang);return {title:d.meta.title,description:d.meta.desc,openGraph:{title:d.meta.title,description:d.meta.desc,locale:lang==='fr'?'fr_CH':'en_GB',type:'website'}}}
+export default async function LanguageLayout({children,params}:{children:React.ReactNode;params:Promise<{lang:string}>}){const {lang}=await params;return <div lang={lang} className={`${serif.variable} ${sans.variable}`}><PageTransition>{children}</PageTransition></div>}

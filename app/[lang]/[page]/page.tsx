@@ -19,8 +19,17 @@ const pages = ['tarifs','milkshakes','equipe','galerie','blog','faq','contact','
 type PageKey = typeof pages[number];
 export function generateStaticParams() { return ['fr','en'].flatMap(lang => pages.map(page => ({lang,page}))); }
 export const dynamicParams = false;
+export async function generateMetadata({params}:{params:Promise<{lang:string;page:string}>}) {
+  const resolved=await params;
+  if (!pages.includes(resolved.page as PageKey) || (resolved.page==='evenement'&&!cfg.event.visible)) return {};
+  const lang=getLang(resolved.lang), pageKey=resolved.page as PageKey, content=(lang==='fr'?fr:en)[pageKey] as any;
+  const route=`/${resolved.page}/`;
+  const title=`${content.title} | Onyx Club`;
+  return {title,description:content.intro,alternates:{canonical:`/${lang}${route}`,languages:{'fr-CH':`/fr${route}`,'en':`/en${route}`,'x-default':`/fr${route}`}},openGraph:{title,description:content.intro,locale:lang==='fr'?'fr_CH':'en_GB',type:'website'}};
+}
 
-export default function ContentPage({params}:{params:{lang:string;page:string}}) {
+export default async function ContentPage(props:{params:Promise<{lang:string;page:string}>}) {
+  const params=await props.params;
   if (!pages.includes(params.page as PageKey)) notFound();
   if(params.page==='evenement'&&!cfg.event.visible) notFound();
   const lang = getLang(params.lang); const d = lang === 'fr' ? fr : en;

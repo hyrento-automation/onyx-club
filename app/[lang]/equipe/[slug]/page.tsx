@@ -14,21 +14,27 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
-  const member = teamMembers.find(person => person.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: rawLang, slug } = await params;
+  const member = teamMembers.find(person => person.slug === slug);
   if (!member) return {};
-  const lang = getLang(params.lang);
+  const lang = getLang(rawLang);
+  const path = `/equipe/${member.slug}/`;
+  const title = `${member.name} · ${member.role[lang]} | ONYX Club`;
   return {
-    title: `${member.name} · ${member.role[lang]} | ONYX Club`,
-    description: member.bio[lang]
+    title,
+    description: member.bio[lang],
+    alternates: { canonical: `/${lang}${path}`, languages: { 'fr-CH': `/fr${path}`, en: `/en${path}`, 'x-default': `/fr${path}` } },
+    openGraph: { title, description: member.bio[lang], locale: lang === 'fr' ? 'fr_CH' : 'en_GB', type: 'profile' }
   };
 }
 
-export default function CoachProfile({ params }: { params: { lang: string; slug: string } }) {
-  const member = teamMembers.find(person => person.slug === params.slug);
+export default async function CoachProfile({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: rawLang, slug } = await params;
+  const member = teamMembers.find(person => person.slug === slug);
   if (!member) notFound();
 
-  const lang = getLang(params.lang);
+  const lang = getLang(rawLang);
   const fr = lang === 'fr';
   const copy = bookingCopy[lang];
   const activities = copy.activities.filter(item => member.activities.some(activity => activity.slug === item.slug)).map(item => ({

@@ -17,8 +17,12 @@ import { teamMembers } from '@/content/team';
 const slugs=['yoga-pilates','boxe','entrainement-prive','course-a-pied','developpement-personnel','bootcamp'];
 export const dynamicParams=false;
 export function generateStaticParams(){return [{lang:'fr'},{lang:'en'}]}
-export default function Home({ params }: { params: { lang: string } }) {
-  const lang=getLang(params.lang),d=getDict(lang),m=d.marquee.repeat(5);
+export async function generateMetadata({params}:{params:Promise<{lang:string}>}){
+  const {lang:rawLang}=await params,lang=getLang(rawLang),d=getDict(lang);
+  return {title:d.meta.title,description:d.meta.desc,alternates:{canonical:`/${lang}/`,languages:{'fr-CH':'/fr/','en':'/en/','x-default':'/fr/'}},openGraph:{title:d.meta.title,description:d.meta.desc,locale:lang==='fr'?'fr_CH':'en_GB',type:'website'}};
+}
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const {lang:rawLang}=await params,lang=getLang(rawLang),d=getDict(lang),m=d.marquee.repeat(5);
   return <><Effects/><Cursor/><LocalBusiness/><Preloader/><Header lang={lang} nav={d.nav} cta={d.cta}/><main>
     <section id="top" className="hero"><div className="hero-shade"/><div className="hero-content"><h1 className="sr-only">{d.hero.title}</h1><Image className="hero-logo" src="/images/brand-onyx.png" alt="ONYX Club · Sport · Lifestyle · Zen · Sur le lac Léman" width={1311} height={1223} priority unoptimized/><div className="hero-actions"><a className="btn magnetic" href="#concept">{lang==='fr'?'DÉCOUVRIR LE CLUB':'DISCOVER THE CLUB'}<span>↘</span></a><a className="btn outline" href="#activites">{lang==='fr'?'NOS ACTIVITÉS':'OUR ACTIVITIES'}</a></div></div><a className="scroll-cue" href="#concept"><span/>{lang==='fr'?'DÉFILER':'SCROLL'}</a></section>
     <div className="mq"><span>{m}</span><span>{m}</span></div>
