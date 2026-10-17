@@ -14,21 +14,27 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
-  const member = teamMembers.find(person => person.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: rawLang, slug } = await params;
+  const member = teamMembers.find(person => person.slug === slug);
   if (!member) return {};
-  const lang = getLang(params.lang);
+  const lang = getLang(rawLang);
+  const path = `/equipe/${member.slug}/`;
+  const title = `${member.name} · ${member.role[lang]} | ONYX Club`;
   return {
-    title: `${member.name} · ${member.role[lang]} | ONYX Club`,
-    description: member.bio[lang]
+    title,
+    description: member.bio[lang],
+    alternates: { canonical: `/${lang}${path}`, languages: { 'fr-CH': `/fr${path}`, en: `/en${path}`, 'x-default': `/fr${path}` } },
+    openGraph: { title, description: member.bio[lang], locale: lang === 'fr' ? 'fr_CH' : 'en_GB', type: 'profile' }
   };
 }
 
-export default function CoachProfile({ params }: { params: { lang: string; slug: string } }) {
-  const member = teamMembers.find(person => person.slug === params.slug);
+export default async function CoachProfile({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: rawLang, slug } = await params;
+  const member = teamMembers.find(person => person.slug === slug);
   if (!member) notFound();
 
-  const lang = getLang(params.lang);
+  const lang = getLang(rawLang);
   const fr = lang === 'fr';
   const copy = bookingCopy[lang];
   const activities = copy.activities.filter(item => member.activities.some(activity => activity.slug === item.slug)).map(item => ({
@@ -75,5 +81,5 @@ export default function CoachProfile({ params }: { params: { lang: string; slug:
       <p className="mut booking-intro">{fr ? 'Votre demande est transmise avec le nom du coach et l’activité sélectionnée.' : 'Your request includes this coach and your selected activity.'}</p>
       <VisitForm key={member.slug} t={formCopy} defaultActivity={defaultActivity} defaultCoach={member.name} endpoint={cfg.formEndpoint} to={cfg.email}/>
     </section>
-  </main><footer className="ft"><a className="footer-logo-link" href={`/${lang}/`} aria-label="Onyx Club home"><Image className="footer-logo-image" src="/images/brand-onyx.png" alt="Onyx Club" width={1000} height={1000} unoptimized/></a><p>{member.name} · {member.role[lang]} · <a href={`/${lang}/equipe/`}>{fr ? 'TOUTE L’ÉQUIPE' : 'MEET THE TEAM'}</a></p><p className="mut">{cfg.address} · <a href={`mailto:${cfg.email}`}>{cfg.email}</a></p></footer></>;
+  </main><footer className="ft"><a className="footer-logo-link" href={`/${lang}/`} aria-label="Onyx Club home"><Image className="footer-logo-image" src="/images/brand-onyx.png" alt="Onyx Club" width={1000} height={1000} unoptimized/></a><p>{member.name} · {member.role[lang]} · <a href={`/${lang}/equipe/`}>{fr ? 'TOUTE L’ÉQUIPE' : 'MEET THE TEAM'}</a></p><p className="mut">{cfg.address} · <a href={`mailto:${cfg.email}`}>{cfg.email}</a></p><p className="footer-credit">{fr?'Créé par ':'Built by '}<a href="https://avadhbajaj.com" target="_blank" rel="noopener noreferrer">Avadh Bajaj</a> · {fr?'100 % pixels, 0 burpee':'100% pixels, 0 burpees'}</p></footer></>;
 }

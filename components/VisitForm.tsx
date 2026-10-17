@@ -49,7 +49,7 @@ export default function VisitForm({t,endpoint,to,defaultActivity,defaultCoach}:{
     {t.message&&<label>{t.message}<textarea name="message" rows={4} placeholder={t.messagePh}/></label>}
     {t.note&&<p className="booking-note">{t.note}</p>}
     <label className="hp" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off"/></label>
-    <button className="btn" type="submit">{t.send}</button>
+    <button id="contact-form-submit" className="btn" type="submit">{t.send}</button>
     {status==='err'&&<p className="err" role="alert">{t.name==='NOM'?'Une erreur est survenue. Réessayez.':'Something went wrong. Please try again.'}</p>}
   </form>;
 }
