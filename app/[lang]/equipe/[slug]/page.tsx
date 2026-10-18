@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title,
     description: member.bio[lang],
     alternates: { canonical: `/${lang}${path}`, languages: { 'fr-CH': `/fr${path}`, en: `/en${path}`, 'x-default': `/fr${path}` } },
-    openGraph: { title, description: member.bio[lang], locale: lang === 'fr' ? 'fr_CH' : 'en_GB', type: 'profile' }
+    openGraph: { title, description: member.bio[lang], locale: lang === 'fr' ? 'fr_CH' : 'en_GB', type: 'profile', images: [{ url: '/images/og-onyx-club.jpg', width: 1200, height: 630, alt: 'ONYX Club · Sport · Lifestyle · Zen' }] },
+    twitter: { card: 'summary_large_image', title, description: member.bio[lang], images: ['/images/og-onyx-club.jpg'] }
   };
 }
 
@@ -44,14 +45,14 @@ export default async function CoachProfile({ params }: { params: Promise<{ lang:
   }));
   const formCopy = { ...copy, activities };
   const nav = fr
-    ? ['LE CONCEPT', 'ACTIVITÉS', 'ÉVÉNEMENT', 'ÉQUIPE', 'AVIS', 'MILKSHAKES', 'CLIENTÈLE', 'RÉSERVER']
-    : ['CONCEPT', 'ACTIVITIES', 'EVENT', 'TEAM', 'REVIEWS', 'SHAKES', 'COMMUNITY', 'BOOK'];
+    ? ['LE CONCEPT', 'ACTIVITÉS', 'ÉVÉNEMENT', 'ÉQUIPE', 'MILKSHAKES', 'CLIENTÈLE', 'RÉSERVER']
+    : ['CONCEPT', 'ACTIVITIES', 'EVENT', 'TEAM', 'SHAKES', 'COMMUNITY', 'BOOK'];
   const defaultActivity = member.activities.length === 1 ? member.activities[0].slug : undefined;
 
   return <><Effects/><Header lang={lang} nav={nav} cta={fr ? 'RÉSERVER UNE SÉANCE' : 'BOOK A SESSION'}/><main className="coach-profile">
     <section className="coach-profile-hero">
       <div className="coach-profile-photo">
-        <Image src={member.image} alt={`${member.name} · ${member.role[lang]}`} fill priority sizes="(max-width: 760px) 100vw, 48vw" style={{ objectPosition: member.imagePosition ?? 'center 28%' }} unoptimized/>
+        <Image src={member.image} alt={`${member.name} · ${member.role[lang]}`} fill priority sizes="(max-width: 760px) 100vw, 48vw" style={{ objectPosition: member.imagePosition ?? 'center 28%' }}/>
       </div>
       <div className="coach-profile-intro">
         <p className="lab">{fr ? 'COACH ONYX' : 'ONYX COACH'}</p>
@@ -60,7 +61,7 @@ export default async function CoachProfile({ params }: { params: Promise<{ lang:
         <p className="mut lead">{member.bio[lang]}</p>
         {member.instagramUrl && member.instagram
           ? <a className="text-link" href={member.instagramUrl} target="_blank" rel="noreferrer">Instagram · {member.instagram} ↗</a>
-          : <p className="mut coach-instagram-pending">{fr ? 'Instagram à confirmer' : 'Instagram to be confirmed'}</p>}
+          : null}
         <a className="btn coach-book-cta" href="#booking">{fr ? 'DEMANDER UNE SÉANCE' : 'REQUEST A SESSION'} ↓</a>
       </div>
     </section>
@@ -81,5 +82,5 @@ export default async function CoachProfile({ params }: { params: Promise<{ lang:
       <p className="mut booking-intro">{fr ? 'Votre demande est transmise avec le nom du coach et l’activité sélectionnée.' : 'Your request includes this coach and your selected activity.'}</p>
       <VisitForm key={member.slug} t={formCopy} defaultActivity={defaultActivity} defaultCoach={member.name} endpoint={cfg.formEndpoint} to={cfg.email}/>
     </section>
-  </main><footer className="ft"><a className="footer-logo-link" href={`/${lang}/`} aria-label="Onyx Club home"><Image className="footer-logo-image" src="/images/brand-onyx.png" alt="Onyx Club" width={1000} height={1000} unoptimized/></a><p>{member.name} · {member.role[lang]} · <a href={`/${lang}/equipe/`}>{fr ? 'TOUTE L’ÉQUIPE' : 'MEET THE TEAM'}</a></p><p className="mut">{cfg.address} · <a href={`mailto:${cfg.email}`}>{cfg.email}</a></p><p className="footer-credit">{fr?'Créé par ':'Built by '}<a href="https://avadhbajaj.com" target="_blank" rel="noopener noreferrer">Avadh Bajaj</a> · {fr?'100 % pixels, 0 burpee':'100% pixels, 0 burpees'}</p></footer></>;
+  </main><footer className="ft"><a className="footer-logo-link" href={`/${lang}/`} aria-label="Onyx Club home"><Image className="footer-logo-image" src="/images/brand-onyx.png" alt="Onyx Club" width={1000} height={1000}/></a><p>{member.name} · {member.role[lang]} · <a href={`/${lang}/equipe/`}>{fr ? 'TOUTE L’ÉQUIPE' : 'MEET THE TEAM'}</a></p><p className="mut">{cfg.address} · <a href={`mailto:${cfg.email}`}>{cfg.email}</a></p><p className="footer-credit">{fr?'Créé par ':'Built by '}<a href="https://avadhbajaj.com" target="_blank" rel="noopener noreferrer">Avadh Bajaj</a> · {fr?'100 % pixels, 0 burpee':'100% pixels, 0 burpees'}</p></footer></>;
 }

@@ -21,7 +21,7 @@ Use `npm run build` to create the production build.
 
 ## Public enquiry and booking forms
 
-Visitors can submit booking and contact forms without logging in. The frontend posts the form to `POST /api/contact`; the server validates the input and sends the enquiry to the owner through Resend. The endpoint includes a honeypot, a 32 KB request limit, a field allowlist, input length limits, email validation, and HTML escaping. It does not currently implement application-level rate limiting.
+Visitors can submit booking and contact forms without logging in. The frontend posts the form to `POST /api/contact`; the server validates the input and sends the enquiry to the owner through Resend. The endpoint includes a same-origin check, a honeypot, a 32 KB request limit, a field allowlist, input length limits, email validation, and HTML escaping. It does not currently implement application-level or shared rate limiting.
 
 The Resend credentials are read only by server route handlers. Do not rename them with a `NEXT_PUBLIC_` prefix or put their values in frontend code, source control, or this README.
 
