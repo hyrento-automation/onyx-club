@@ -1,6 +1,6 @@
 const cfg = {
   name: 'Onyx Club',
-  domain: 'https://onyxclub.ch',
+  domain: 'https://www.onyxclub.ch',
   phone: '078 613 70 21',
   email: 'contact@onyxclub.ch',
   secondaryEmail: 'info@onyxclub.ch',
