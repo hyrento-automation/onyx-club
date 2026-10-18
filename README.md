@@ -1,6 +1,6 @@
 # Onyx Club · onyxclub.ch
 
-A bilingual (French/English), static Next.js 14 website for Onyx Club in Cologny. It uses the App Router, TypeScript, Tailwind-ready styling, Lenis, GSAP/ScrollTrigger and Framer Motion dependencies, with static export enabled.
+Bilingual French/English website for Onyx Club in Cologny, built with Next.js App Router, TypeScript, GSAP/ScrollTrigger, Lenis, and Framer Motion.
 
 ## Run locally
 
@@ -9,25 +9,47 @@ npm install
 npm run dev
 ```
 
-Run `npm run build` to generate the production static export in `/out`.
+Use `npm run build` to create the production build.
 
-## Edit content and details
+## Content and media
 
 - Homepage and navigation copy: `content/fr.json` and `content/en.json`.
 - Secondary pages: `content/pages.fr.json` and `content/pages.en.json`.
-- Activity detail copy: `content/activities.ts`.
-- Club details, rates, currency, event date/status/visibility and form endpoint: `site.config.ts`.
-- Set `NEXT_PUBLIC_FORM_ENDPOINT` to a form provider endpoint. Without it, forms open a prefilled email to `contact@onyxclub.ch`.
-- Update contact details in `site.config.ts` if the club information changes.
+- Activity details: `content/activities.ts`.
+- Club details, rates, event visibility, and form endpoint: `site.config.ts`.
+- Site images: `public/images/`; videos: `public/video/`.
 
-## Replace the media placeholders
+## Public enquiry and booking forms
 
-Temporary generated visuals are currently wired into the hero and activity cards (`hero-lake-generated.jpg`, `yoga-generated.jpg`, `boxing-generated.jpg`). Replace them with official imagery when ready: show the ONYX building interior and indoor sessions for every activity; the hero may include the lake through the club windows. Milkshakes should be presented in elegant glass bottles and supplied as transparent-background product cutouts. Four supplied videos are included in `public/video/` and appear in the gallery; the shake-serving video also appears on the milkshake page. Add future activity photography or official posters to `public/images/posters/` using the names `boxe`, `yoga`, `developpement-personnel`, `activites-exception`, `journee-sportive-copper`, `journee-sportive-gold`, `pass-27`, and `offres-liste` (include the appropriate image extension). The site uses dark copper CSS compositions if official files are absent.
+Visitors can submit booking and contact forms without logging in. The frontend posts the form to `POST /api/contact`; the server validates the input and sends the enquiry to the owner through Resend. The endpoint includes a honeypot, a 32 KB request limit, a field allowlist, input length limits, email validation, and HTML escaping. It does not currently implement application-level rate limiting.
 
-## Event updates
+The Resend credentials are read only by server route handlers. Do not rename them with a `NEXT_PUBLIC_` prefix or put their values in frontend code, source control, or this README.
 
-Update `event.date`, `event.status`, and `event.visible` in `site.config.ts` when a new edition is announced. Then update the event title, intro and programme in both `content/pages.*.json` files and the displayed pass copy in `components/PassTicket.tsx` if the date or programme changes. Set `visible` to `false` to hide the page.
+Configure these variables in Vercel Project Settings → Environment Variables:
+
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Server-side Resend API access for outbound enquiry email and inbound forwarding. |
+| `RESEND_FROM_EMAIL` | Verified sender, for example `Onyx Club <contact@onyxclub.ch>`. |
+| `OWNER_EMAIL` | Destination for website enquiries and forwarded inbound mail. |
+| `RESEND_WEBHOOK_SECRET` | Verifies signed inbound Resend webhook requests. |
+
+The Vercel project currently has these variables configured for Production, Preview, and Development. `RESEND_API_KEY` and `RESEND_WEBHOOK_SECRET` are encrypted and server-only, but Vercel flags them as `readable-secret`: authorized project members can still reveal ordinary encrypted variables in the dashboard or CLI. For write-only storage, rotate and recreate these as Sensitive variables for Production and Preview; use a separate local Development value because Sensitive variables cannot target Development. Redeploy after changing environment variables.
+
+### Contact form rate limiting
+
+The contact endpoint currently has no shared rate limiter, and the Vercel project has no active Firewall configuration. Avoid an in-memory counter: Vercel Functions scale across instances, so a process-local limit is not reliable. Use a shared limiter such as a Vercel Firewall custom rule for `POST /api/contact` (keyed by client IP), or a shared Redis-backed limiter if per-route custom limits are needed.
+
+For Vercel Firewall, start with a logging rule for the `POST /api/contact` route and review its matches before enforcing a limit. A reasonable initial enforcement setting is 10 requests per IP per minute with a `429` rate-limit response. Firewall rule changes are staged; review the diff and publish them in Vercel after confirming the rule only matches the contact endpoint. Check the project's Firewall availability and permissions before relying on this control.
+
+### Inbound email forwarding
+
+`POST /api/email/inbound` receives Resend webhooks. It verifies the signature with `RESEND_WEBHOOK_SECRET` and forwards supported messages sent to `contact@onyxclub.ch` to `OWNER_EMAIL`. Configure the matching Resend inbound webhook and its signing secret in Vercel.
 
 ## Deploy
 
-Deploy the generated `/out` directory to Vercel or another static host. The site does not use a database, analytics, cookies, or API routes. Configure a form provider endpoint in the deployment environment if you want enquiries delivered without opening the visitor’s email app.
+The project uses Next.js server routes for forms and inbound email, so deploy the Next.js app to Vercel rather than exporting it as a static-only site. Set the server environment variables in the Vercel project before deploying.
+
+## Event updates
+
+Update `event.date`, `event.status`, and `event.visible` in `site.config.ts` when a new edition is announced. Update the event content in both `content/pages.fr.json` and `content/pages.en.json` as needed. Set `visible` to `false` to hide the page.
