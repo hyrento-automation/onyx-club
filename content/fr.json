@@ -8,7 +8,6 @@
     "ACTIVITÉS",
     "ÉVÉNEMENT",
     "ÉQUIPE",
-    "AVIS",
     "MILKSHAKES",
     "CLIENTÈLE",
     "RÉSERVER"
@@ -87,24 +86,6 @@
     "title": "Maîtrise de soi & force.",
     "text": "Agilité & endurance décuplées. Précision de l'action. Résilience & équilibre."
   },
-  "reviews": {
-    "label": "AVIS",
-    "title": "Ils sont devenus membres.",
-    "items": [
-      [
-        "Un lieu unique, une énergie rare.",
-        "Membre, Cologny"
-      ],
-      [
-        "Le coaching change vraiment ma semaine.",
-        "Entrepreneur, Genève"
-      ],
-      [
-        "Le studio et son ambiance : inoubliables.",
-        "Membre, Genève"
-      ]
-    ]
-  },
   "bar": {
     "label": "NUTRITION BAR",
     "title": "ONYX MILKSHAKES.",
@@ -149,7 +130,7 @@
   "visit": {
     "label": "PREMIÈRE VISITE",
     "title": "Entrer chez ONYX.",
-    "sub": "Laissez vos coordonnées. Nous vous recontacterons. Démonstration sans paiement.",
+    "sub": "Laissez vos coordonnées. Nous vous recontacterons.",
     "name": "NOM",
     "namePh": "Prénom Nom",
     "email": "EMAIL",

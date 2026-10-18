@@ -31,6 +31,24 @@ function escapeHtml(value: string) {
 }
 
 export async function POST(request: Request) {
+  const origin = request.headers.get('origin');
+  const requestHost = new URL(request.url).host;
+  const fetchSite = request.headers.get('sec-fetch-site');
+  let originHost: string | undefined;
+  try {
+    originHost = origin ? new URL(origin).host : undefined;
+  } catch {
+    return Response.json({ error: 'Invalid form origin.' }, { status: 403 });
+  }
+  if ((originHost && originHost !== requestHost) || fetchSite === 'cross-site') {
+    return Response.json({ error: 'Cross-origin form submissions are not accepted.' }, { status: 403 });
+  }
+
+  const contentType = request.headers.get('content-type') || '';
+  if (!contentType.startsWith('multipart/form-data') && !contentType.startsWith('application/x-www-form-urlencoded')) {
+    return Response.json({ error: 'Invalid form submission.' }, { status: 415 });
+  }
+
   if (!process.env.RESEND_API_KEY) {
     return Response.json({ error: 'Email service is not configured.' }, { status: 503 });
   }

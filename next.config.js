@@ -1,6 +1,13 @@
 module.exports = {
   trailingSlash: true,
-  images: { unoptimized: true },
+  async redirects() {
+    return [{
+      source: '/:path*',
+      has: [{ type: 'host', value: 'www.onyxclub.ch' }],
+      destination: 'https://onyxclub.ch/:path*',
+      permanent: true,
+    }];
+  },
   async headers() {
     return [{
       source: '/:path*',
@@ -9,6 +16,7 @@ module.exports = {
         { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
         { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
         { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        { key: 'Strict-Transport-Security', value: 'max-age=31536000' },
       ],
     }];
   },
