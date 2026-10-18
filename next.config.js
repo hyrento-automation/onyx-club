@@ -1,13 +1,5 @@
 module.exports = {
   trailingSlash: true,
-  async redirects() {
-    return [{
-      source: '/:path*',
-      has: [{ type: 'host', value: 'www.onyxclub.ch' }],
-      destination: 'https://onyxclub.ch/:path*',
-      permanent: true,
-    }];
-  },
   async headers() {
     return [{
       source: '/:path*',
