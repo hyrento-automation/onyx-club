@@ -37,7 +37,7 @@ export const teamMembers: TeamMember[] = [
   {
     slug: 'sabrina', name: 'Sabrina', role: { fr: 'Développement personnel', en: 'Personal development' },
     bio: { fr: 'Ateliers et accompagnement en développement personnel.', en: 'Workshops and personal development coaching.' },
-    image: '/images/sabrina-onyx.png', imagePosition: '50% 34%', instagram: '@phoenix_onyxcoach', instagramUrl: 'https://www.instagram.com/phoenix_onyxcoach/',
+    image: '/images/sabrina-onyx-profile.jpg', imagePosition: '50% 34%', instagram: '@phoenix_onyxcoach', instagramUrl: 'https://www.instagram.com/phoenix_onyxcoach/',
     activities: [{ label: { fr: 'Développement personnel', en: 'Personal development' }, slug: 'developpement-personnel' }]
   },
   {
