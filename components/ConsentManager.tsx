@@ -112,7 +112,7 @@ export default function ConsentManager({ gtmId }: { gtmId?: string }) {
   return <>
     {open && <section className="consent-panel" role="dialog" aria-modal="false" aria-labelledby="consent-title">
       <div className="consent-copy">
-        <p className="lab">ONYX · CONFIDENTIALITÉ</p>
+        <p className="lab">{lang === 'fr' ? 'ONYX · CONFIDENTIALITÉ' : 'ONYX · PRIVACY'}</p>
         <h2 id="consent-title">{copy.title}</h2>
         <p>{copy.body}</p>
       </div>
