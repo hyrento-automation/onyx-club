@@ -7,6 +7,7 @@ type DataLayerWindow = Window & {
   dataLayer?: unknown[];
   gtag?: (...args: unknown[]) => void;
   onyxGtmLoaded?: boolean;
+  onyxGoogleTagConfigured?: boolean;
 };
 
 const STORAGE_KEY = 'onyx-consent-v1';
@@ -45,6 +46,14 @@ function updateConsent(consent: Consent) {
   });
 }
 
+function configureGoogleTag(googleTagId?: string) {
+  const win = window as DataLayerWindow;
+  if (!googleTagId || win.onyxGoogleTagConfigured) return;
+  win.onyxGoogleTagConfigured = true;
+  win.gtag?.('js', new Date());
+  win.gtag?.('config', googleTagId);
+}
+
 export default function ConsentManager({ gtmId, googleTagId }: { gtmId?: string; googleTagId?: string }) {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
   const [open, setOpen] = useState(false);
@@ -59,13 +68,7 @@ export default function ConsentManager({ gtmId, googleTagId }: { gtmId?: string;
     win.gtag = win.gtag || function () {
       win.dataLayer!.push(arguments);
     };
-    if (gtmId) {
-      win.gtag('consent', 'default', CONSENT_DEFAULTS);
-      if (googleTagId) {
-        win.gtag('js', new Date());
-        win.gtag('config', googleTagId);
-      }
-    }
+    if (gtmId) win.gtag('consent', 'default', CONSENT_DEFAULTS);
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
@@ -75,7 +78,10 @@ export default function ConsentManager({ gtmId, googleTagId }: { gtmId?: string;
           setMarketing(parsed.marketing);
           if (gtmId) {
             updateConsent(parsed);
-            if (parsed.analytics || parsed.marketing) loadGtm(gtmId);
+            if (parsed.analytics || parsed.marketing) {
+              configureGoogleTag(googleTagId);
+              loadGtm(gtmId);
+            }
           }
           setOpen(false);
           return;
@@ -93,7 +99,10 @@ export default function ConsentManager({ gtmId, googleTagId }: { gtmId?: string;
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch { /* Consent still applies for this visit. */ }
     if (gtmId) {
       updateConsent(next);
-      if (next.analytics || next.marketing) loadGtm(gtmId);
+      if (next.analytics || next.marketing) {
+        configureGoogleTag(googleTagId);
+        loadGtm(gtmId);
+      }
     }
     setOpen(false);
     setCustomize(false);
