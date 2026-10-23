@@ -45,7 +45,7 @@ function updateConsent(consent: Consent) {
   });
 }
 
-export default function ConsentManager({ gtmId }: { gtmId?: string }) {
+export default function ConsentManager({ gtmId, googleTagId }: { gtmId?: string; googleTagId?: string }) {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
   const [open, setOpen] = useState(false);
   const [customize, setCustomize] = useState(false);
@@ -59,7 +59,13 @@ export default function ConsentManager({ gtmId }: { gtmId?: string }) {
     win.gtag = win.gtag || function () {
       win.dataLayer!.push(arguments);
     };
-    if (gtmId) win.gtag('consent', 'default', CONSENT_DEFAULTS);
+    if (gtmId) {
+      win.gtag('consent', 'default', CONSENT_DEFAULTS);
+      if (googleTagId) {
+        win.gtag('js', new Date());
+        win.gtag('config', googleTagId);
+      }
+    }
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
@@ -79,7 +85,7 @@ export default function ConsentManager({ gtmId }: { gtmId?: string }) {
       try { localStorage.removeItem(STORAGE_KEY); } catch { /* Storage may be disabled. */ }
     }
     setOpen(true);
-  }, [gtmId]);
+  }, [gtmId, googleTagId]);
 
   function saveConsent(next: Consent) {
     setAnalytics(next.analytics);
