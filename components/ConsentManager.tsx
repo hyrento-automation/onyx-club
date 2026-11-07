@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 type Consent = { analytics: boolean; marketing: boolean };
 type DataLayerWindow = Window & {
@@ -55,6 +56,8 @@ function configureGoogleTag(googleTagId?: string) {
 }
 
 export default function ConsentManager({ gtmId, googleTagId }: { gtmId?: string; googleTagId?: string }) {
+  const pathname = usePathname();
+  const isEssai = pathname?.replace(/\/+$/, '') === '/essai';
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
   const [open, setOpen] = useState(false);
   const [customize, setCustomize] = useState(false);
@@ -125,7 +128,7 @@ export default function ConsentManager({ gtmId, googleTagId }: { gtmId?: string;
       };
 
   return <>
-    {open && <section className="consent-panel" role="dialog" aria-modal="false" aria-labelledby="consent-title">
+    {open && <section className={`consent-panel${isEssai ? ' consent-panel-essai' : ''}`} role="dialog" aria-modal="false" aria-labelledby="consent-title">
       <div className="consent-copy">
         <p className="lab">{lang === 'fr' ? 'ONYX · CONFIDENTIALITÉ' : 'ONYX · PRIVACY'}</p>
         <h2 id="consent-title">{copy.title}</h2>
