@@ -10,6 +10,9 @@ export const homeLeadCopy = {
     namePh: 'Prénom Nom',
     email: 'E-MAIL',
     emailPh: 'vous@exemple.com',
+    phone: 'TÉLÉPHONE',
+    phonePh: '078 123 45 67',
+    phoneRequired: true,
     send: 'ÊTRE RECONTACTÉ',
     ok: 'Merci. L’équipe ONYX vous recontactera bientôt.'
   },
@@ -18,6 +21,9 @@ export const homeLeadCopy = {
     namePh: 'First Last',
     email: 'EMAIL',
     emailPh: 'you@example.com',
+    phone: 'PHONE',
+    phonePh: '+41 78 123 45 67',
+    phoneRequired: true,
     send: 'REQUEST A CALL BACK',
     ok: 'Thank you. The ONYX team will be in touch soon.'
   }

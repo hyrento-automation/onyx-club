@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { BookingActivity } from '@/content/booking';
 
 type T = {
-  name:string;namePh?:string;email:string;emailPh?:string;phone?:string;phoneRequired?:boolean;activity?:string;message?:string;send:string;ok:string;
+  name:string;namePh?:string;email:string;emailPh?:string;phone?:string;phonePh?:string;phoneRequired?:boolean;activity?:string;message?:string;send:string;ok:string;
   activityPlaceholder?:string;activities?:readonly BookingActivity[];format?:string;formatPlaceholder?:string;
   sessionType?:string;sessionTypeOptions?:readonly string[];date?:string;time?:string;timeOptions?:readonly string[];
   level?:string;levelOptions?:readonly string[];goals?:string;goalsPh?:string;messagePh?:string;note?:string;
@@ -35,7 +35,7 @@ export default function VisitForm({t,endpoint,to,defaultActivity,defaultCoach}:{
     {defaultCoach&&<input type="hidden" name="coach" value={defaultCoach}/>}
     <label>{t.name}<input name="name" required placeholder={t.namePh||(t.name==='NOM'?'Prénom Nom':'First Last')} autoComplete="name"/></label>
     <label>{t.email}<input name="email" type="email" required placeholder={t.emailPh||(t.email==='E-MAIL'?'vous@exemple.com':'you@example.com')} autoComplete="email"/></label>
-    {t.phone&&<label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required={!!t.activities||!!t.phoneRequired}/></label>}
+    {t.phone&&<label>{t.phone}<input name="phone" type="tel" autoComplete="tel" placeholder={t.phonePh} required={!!t.activities||!!t.phoneRequired}/></label>}
     {t.activities&&<div className="booking-details">
       <label>{t.activity}<select name="activity" value={activity} onChange={event=>setActivity(event.target.value)} required><option value="">{t.activityPlaceholder}</option>{t.activities.map(item=><option value={item.slug} key={item.slug}>{item.label}</option>)}</select></label>
       <label>{t.format}<select key={activity} name="session_format" defaultValue="" required disabled={!activity}><option value="">{t.formatPlaceholder}</option>{formats.map(format=><option value={format} key={format}>{format}</option>)}</select></label>
